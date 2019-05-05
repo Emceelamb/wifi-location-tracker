@@ -1,0 +1,1 @@
+ 00:BE:75:CF:00:4F  -58        1        6    0  52  540  WPA2 CCMP   MGT  nyu    

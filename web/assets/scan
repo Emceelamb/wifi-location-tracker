@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo airodump-ng --channel 52 --bssid 00:BE:75:CF:00:4F -w aptest wlp0s20u1mon
