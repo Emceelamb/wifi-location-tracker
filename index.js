@@ -17,7 +17,7 @@ client = new Client({
 
 client.connect();
 
-var inputFile = 'aptest-02.csv';
+var inputFile = './web/assets/aptest-01.csv';
 
 const PORT = process.env.PORT || 8000;
 
@@ -26,7 +26,7 @@ var parse = require('csv-parse');
 
 
 var csvData = [];
-fs.createReadStream('aptest-02.csv')
+fs.createReadStream('./web/assets/aptest-01.csv')
   .pipe(parse({
     delimiter: ';'
   }))
