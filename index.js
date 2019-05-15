@@ -59,7 +59,7 @@ fs.createReadStream('./web/assets/aptest-01.csv')
     // });
   });
 
-app.get('/getData', function(req, res1) {
+app.get('/getData1', function(req, res1) {
   let message = [];
   // console.log("got data request from main.js");
   client.query('SELECT * FROM devices', function(err, result) {
