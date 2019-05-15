@@ -2,6 +2,7 @@ let floorMap;
 let clients = [];
 let x1 = 600;
 let y1 = 100;
+let range = 350;
 
 function preload() {
   floorMap = loadImage('./assets/floorMap_architecture.png');
@@ -13,17 +14,20 @@ function setup() {
 
   fill(255, 255, 0, 150);
   stroke(0);
-  ellipse(660, 100, 10, 10);
+  ellipse(x1, y1, 10, 10);
   noStroke();
   fill(255, 255, 0, 80);
-  ellipse(660, 100, 350, 350);
+  ellipse(x1, y1, range, range);
 
   fill(0);
   //    for(var i = 0; i<clients.length; i++){
   //        text(clients[i], random(660-150,660+150), random(0,100+150));
   //   }
 
-  getData('/getData1');
+  getData('/getData1'); //access point 1
+  // getData('/getData2'); //access point 2
+  // getData('/getData3'); //access point 3
+  // getData('/getData4'); //access point 4
 }
 
 function getData(url) {
@@ -74,6 +78,8 @@ class Target {
     this.t = t;
     this.x = random(x - 150, x + 150);
     this.y = random(y - 150, y + 150);
+    this.centerX = x;
+    this.centerY = y;
     this.prob = 0;
   }
 
@@ -90,6 +96,8 @@ class Target {
     }
     this.x = constrain(this.x, 0, width);
     this.y = constrain(this.y, 0, width);
+    this.x = constrain(this.x, this.centerX - range / 2, this.centerX + range / 2);
+    this.y = constrain(this.y, this.centerY - range / 2, this.centerY + range / 2);
   }
 
   display() {
