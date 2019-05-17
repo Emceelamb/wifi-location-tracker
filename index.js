@@ -37,7 +37,7 @@ function csv2pg() {
     .on('data', function(oldcsvrow) {
       console.log(oldcsvrow); //print each row of csv file
       // counter = 0;
-      if (counter >= 4) {
+      if (counter > 4) {
         csvNew.push(oldcsvrow);
       }
       counter++;
