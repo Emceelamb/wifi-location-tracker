@@ -30,12 +30,25 @@ function setup() {
   // getData('/getData4'); //access point 4
 }
 
+setTimeout(timer, 5000);
+
+function timer() {
+  setInterval(function() {
+    getData('/getData1');
+    console.log('update!');
+  }, 7000);
+
+}
+
+
 function getData(url) {
+  console.log('got data');
   fetch(url)
     .then((response) => {
       return response.json();
     })
     .then((jsonData) => {
+      clients = [];
       jsonData.forEach(element => {
         console.log(element);
         // text(element.station, random(660 - 150, 660 + 150), random(0, 100 + 150));
@@ -44,7 +57,7 @@ function getData(url) {
       for (var i = 0; i < clients.length; i++) {
         clients[i] = new Target(clients[i], x1, y1);
       }
-      clients.splice(clients.length - 1, 1);
+      // clients.splice(clients.length - 1, 1);
     });
 }
 
@@ -95,7 +108,7 @@ class Target {
       this.y -= 10;
     }
     this.x = constrain(this.x, 0, width);
-    this.y = constrain(this.y, 0, width);
+    this.y = constrain(this.y, 0, height);
     this.x = constrain(this.x, this.centerX - range / 2, this.centerX + range / 2);
     this.y = constrain(this.y, this.centerY - range / 2, this.centerY + range / 2);
   }
