@@ -6,7 +6,7 @@ let x1 = 600;
 let y1 = 100;
 let x2 = 1000;
 let y2 = 130;
-let x3 = 400;
+let x3 = 250;
 let y3 = 100;
 let range = 350;
 
@@ -50,7 +50,7 @@ function timer() {
 
 
 function getData1(url) {
-  console.log('got data');
+  console.log('got data from Access Point 1');
   fetch(url)
     .then((response) => {
       return response.json();
@@ -70,7 +70,7 @@ function getData1(url) {
 }
 
 function getData2(url) {
-  console.log('got data');
+  console.log('got data from Access Point 2');
   fetch(url)
     .then((response) => {
       return response.json();
@@ -90,7 +90,7 @@ function getData2(url) {
 }
 
 function getData3(url) {
-  console.log('got data');
+  console.log('got data from Access Point 3');
   fetch(url)
     .then((response) => {
       return response.json();
