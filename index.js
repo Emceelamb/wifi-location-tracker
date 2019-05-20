@@ -72,7 +72,6 @@ function csv2pg() {
       for (let row of result.rows) {
         message.push(row);
       }
-      // console.log(message);
       res1.send(message);
     });
   });
