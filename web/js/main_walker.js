@@ -6,8 +6,8 @@ let x1 = 600;
 let y1 = 100;
 let x2 = 1000;
 let y2 = 130;
-let x3 = 250;
-let y3 = 100;
+let x3 = 800;
+let y3 = 400;
 let range = 350;
 
 function preload() {
@@ -15,15 +15,32 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(1200, 800);
+  createCanvas(1200, 610);
   image(floorMap, 0, 0);
 
+  //access point 1
   fill(255, 255, 0, 150);
   stroke(0);
   ellipse(x1, y1, 10, 10);
   noStroke();
   fill(255, 255, 0, 80);
   ellipse(x1, y1, range, range);
+
+  //access point 2
+  fill(0, 255, 0, 150);
+  stroke(0);
+  ellipse(x2, y2, 10, 10);
+  noStroke();
+  fill(0, 255, 0, 80);
+  ellipse(x2, y2, range, range);
+
+  //access point 3
+  fill(255, 0, 0, 150);
+  stroke(0);
+  ellipse(x3, y3, 10, 10);
+  noStroke();
+  fill(255, 0, 0, 80);
+  ellipse(x3, y3, range, range);
 
   fill(0);
   //    for(var i = 0; i<clients.length; i++){
@@ -111,14 +128,33 @@ function getData3(url) {
 
 function draw() {
 
+  console.log(mouseX, mouseY);
+
   image(floorMap, 0, 0);
 
+  //access point 1
   fill(255, 255, 0, 150);
   stroke(0);
   ellipse(660, 100, 10, 10);
   noStroke();
   fill(255, 255, 0, 80);
   ellipse(660, 100, 350, 350);
+
+  //access point 2
+  fill(0, 255, 0, 150);
+  stroke(0);
+  ellipse(x2, y2, 10, 10);
+  noStroke();
+  fill(0, 255, 0, 80);
+  ellipse(x2, y2, range, range);
+
+  //access point 3
+  fill(255, 0, 0, 150);
+  stroke(0);
+  ellipse(x3, y3, 10, 10);
+  noStroke();
+  fill(255, 0, 0, 80);
+  ellipse(x3, y3, range, range);
 
   fill(0);
   for (var i = 0; i < clients_ap1.length; i++) {
@@ -165,8 +201,8 @@ class Target {
     } else if (this.prob < 1) {
       this.y -= 10;
     }
-    this.x = constrain(this.x, 0, width);
-    this.y = constrain(this.y, 0, height);
+    this.x = constrain(this.x, 20, width - 20);
+    this.y = constrain(this.y, 20, height - 20);
     this.x = constrain(this.x, this.centerX - range / 2, this.centerX + range / 2);
     this.y = constrain(this.y, this.centerY - range / 2, this.centerY + range / 2);
   }
