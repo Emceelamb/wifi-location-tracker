@@ -202,7 +202,7 @@ class Target {
       this.y -= 10;
     }
     this.x = constrain(this.x, 0, width - 100);
-    this.y = constrain(this.y, 0, height - 100);
+    this.y = constrain(this.y, 0, height - 20);
     this.x = constrain(this.x, this.centerX - range / 2, this.centerX + range / 2);
     this.y = constrain(this.y, this.centerY - range / 2, this.centerY + range / 2);
   }
