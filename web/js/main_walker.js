@@ -4,7 +4,7 @@ let clients_ap2 = [];
 let clients_ap3 = [];
 let x1 = 600;
 let y1 = 100;
-let x2 = 1192;
+let x2 = 1192 - 50;
 let y2 = 218;
 let x3 = 968;
 let y3 = 476;
@@ -201,8 +201,8 @@ class Target {
     } else if (this.prob < 0.40) {
       this.y -= 10;
     }
-    this.x = constrain(this.x, 20, width - 20);
-    this.y = constrain(this.y, 20, height - 20);
+    this.x = constrain(this.x, 0, width - 100);
+    this.y = constrain(this.y, 0, height - 100);
     this.x = constrain(this.x, this.centerX - range / 2, this.centerX + range / 2);
     this.y = constrain(this.y, this.centerY - range / 2, this.centerY + range / 2);
   }
