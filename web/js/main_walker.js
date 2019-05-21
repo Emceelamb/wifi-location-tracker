@@ -128,7 +128,7 @@ function getData3(url) {
 
 function draw() {
 
-  console.log(mouseX, mouseY);
+  // console.log(mouseX, mouseY);
 
   image(floorMap, 0, 0);
 
@@ -191,14 +191,14 @@ class Target {
   }
 
   move() {
-    this.prob = random(0, 20);
-    if (this.prob < 0.25) {
+    this.prob = random(0, 50);
+    if (this.prob < 0.10) {
       this.x += 10;
-    } else if (this.prob < 0.50) {
+    } else if (this.prob < 0.20) {
       this.x -= 10;
-    } else if (this.prob < 0.75) {
+    } else if (this.prob < 0.30) {
       this.y += 10;
-    } else if (this.prob < 1) {
+    } else if (this.prob < 0.40) {
       this.y -= 10;
     }
     this.x = constrain(this.x, 20, width - 20);
@@ -208,6 +208,7 @@ class Target {
   }
 
   display() {
+    textSize(7);
     text(this.t, this.x, this.y);
   }
 
