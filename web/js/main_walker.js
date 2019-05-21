@@ -137,7 +137,7 @@ function draw() {
   stroke(0);
   ellipse(660, 100, 10, 10);
   noStroke();
-  fill( 230, 30);
+  fill(230, 30);
   ellipse(660, 100, range, range);
 
   //access point 2
@@ -202,7 +202,11 @@ class Target {
       this.y -= 10;
     }
     this.x = constrain(this.x, 0, width - 100);
+<<<<<<< HEAD
     this.y = constrain(this.y, 0, height - 20);
+=======
+    this.y = constrain(this.y, 30, height - 100);
+>>>>>>> 62ec00394865c320c3cca95c923385ae0b5b867c
     this.x = constrain(this.x, this.centerX - range / 2, this.centerX + range / 2);
     this.y = constrain(this.y, this.centerY - range / 2, this.centerY + range / 2);
   }
