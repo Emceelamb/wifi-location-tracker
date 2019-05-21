@@ -8,8 +8,8 @@ let x2 = 1192 - 50;
 let y2 = 218;
 let x3 = 968;
 let y3 = 476;
-let x4 = 940;
-let y4 = 250;
+let x4 = 910;
+let y4 = 300;
 
 let range = 500;
 
@@ -46,11 +46,11 @@ function setup() {
   ellipse(x3, y3, range, range);
 
   //access point 4
-  fill(255, 0, 0, 150);
+  fill(0, 0, 255, 150);
   stroke(0);
-  ellipse(x3, y3, 10, 10);
+  ellipse(x4, y4, 10, 10);
   noStroke();
-  fill(255, 0, 0, 80);
+  fill(230, 80);
   ellipse(x4, y4, range, range);
 
   fill(0);
@@ -189,11 +189,11 @@ function draw() {
   ellipse(x3, y3, range, range);
 
   //access point 4
-  fill(0, 255, 0, 150);
+  fill(0, 0, 255, 150);
   stroke(0);
-  ellipse(x2, y2, 10, 10);
+  ellipse(x4, y4, 10, 10);
   noStroke();
-  fill(230, 30);
+  fill(230, 80);
   ellipse(x4, y4, range, range);
 
   fill(0);
@@ -246,15 +246,8 @@ class Target {
     } else if (this.prob < 0.40) {
       this.y -= 10;
     }
-    this.x = constrain(this.x, 0, width - 100); <<
-    <<
-    << < HEAD
-    this.y = constrain(this.y, 0, height - 20); ===
-    ===
-    =
-    this.y = constrain(this.y, 30, height - 100); >>>
-    >>>
-    > 62 ec00394865c320c3cca95c923385ae0b5b867c
+    this.x = constrain(this.x, 0, width - 100);
+    this.y = constrain(this.y, 0, height - 20);
     this.x = constrain(this.x, this.centerX - range / 2, this.centerX + range / 2);
     this.y = constrain(this.y, this.centerY - range / 2, this.centerY + range / 2);
   }

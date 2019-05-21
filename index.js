@@ -18,9 +18,9 @@ client = new Client({
 client.connect();
 
 var inputFile_ap1 = './web/assets/aptest-01.csv'; //make this aptest1-01.csv
-var inputFile_ap2 = './web/assets/aptest2-01.csv'; //make this aptest2-01.csv             imarea
-var inputFile_ap3 = './web/assets/aptest3-01.csv'; //make this aptest3-01.csv             jarea
-var inputFile_ap3 = './web/assets/aptest4-01.csv'; //make this aptest4-01.csv             room15
+var inputFile_ap2 = './web/assets/aptest-01.csv'; //make this aptest2-01.csv             imarea
+var inputFile_ap3 = './web/assets/aptest-01.csv'; //make this aptest3-01.csv             jarea
+var inputFile_ap4 = './web/assets/aptest-01.csv'; //make this aptest4-01.csv             room15
 
 const PORT = process.env.PORT || 8000;
 
@@ -71,11 +71,11 @@ function csv2pg_ap1() {
   app.get('/getData1', function(req, res1) {
     let message = [];
     // console.log("got data request from main.js");
-    client.query('SELECT * FROM devices', function(err, result) {
+    client.query('SELECT * FROM devices', function(err, result1) {
       if (err) {
         console.log(err);
       }
-      for (let row of result.rows) {
+      for (let row of result1.rows) {
         message.push(row);
       }
       res1.send(message);
@@ -119,17 +119,17 @@ function csv2pg_ap2() {
       // });
     });
 
-  app.get('/getData2', function(req, res1) {
+  app.get('/getData2', function(req, res2) {
     let message = [];
     // console.log("got data request from main.js");
-    client.query('SELECT * FROM devices2', function(err, result) {
+    client.query('SELECT * FROM devices2', function(err, result2) {
       if (err) {
         console.log(err);
       }
-      for (let row of result.rows) {
+      for (let row of result2.rows) {
         message.push(row);
       }
-      res1.send(message);
+      res2.send(message);
     });
   });
 }
@@ -170,17 +170,17 @@ function csv2pg_ap3() {
       // });
     });
 
-  app.get('/getData3', function(req, res1) {
+  app.get('/getData3', function(req, res3) {
     let message = [];
     // console.log("got data request from main.js");
-    client.query('SELECT * FROM devices3', function(err, result) {
+    client.query('SELECT * FROM devices3', function(err, result3) {
       if (err) {
         console.log(err);
       }
-      for (let row of result.rows) {
+      for (let row of result3.rows) {
         message.push(row);
       }
-      res1.send(message);
+      res3.send(message);
     });
   });
 }
@@ -206,8 +206,8 @@ function csv2pg_ap4() {
 
     })
     .on('end', function() {
-      console.log('new csv AP 3');
-      console.log(csvNew_ap3); //print each row of new csv file excluding the first 4 rows
+      console.log('new csv AP 4');
+      console.log(csvNew_ap4); //print each row of new csv file excluding the first 4 rows
 
       csvNew_ap4.forEach(element => {
         let arr = element[0].split(',');
@@ -221,17 +221,17 @@ function csv2pg_ap4() {
       // });
     });
 
-  app.get('/getData4', function(req, res1) {
+  app.get('/getData4', function(req, res4) {
     let message = [];
     // console.log("got data request from main.js");
-    client.query('SELECT * FROM devices4', function(err, result) {
+    client.query('SELECT * FROM devices4', function(err, result4) {
       if (err) {
         console.log(err);
       }
-      for (let row of result.rows) {
+      for (let row of result4.rows) {
         message.push(row);
       }
-      res1.send(message);
+      res4.send(message);
     });
   });
 }
