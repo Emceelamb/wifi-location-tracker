@@ -4,18 +4,18 @@ let clients_ap2 = [];
 let clients_ap3 = [];
 let x1 = 600;
 let y1 = 100;
-let x2 = 1000;
-let y2 = 130;
-let x3 = 800;
-let y3 = 400;
-let range = 350;
+let x2 = 1192;
+let y2 = 218;
+let x3 = 968;
+let y3 = 476;
+let range = 500;
 
 function preload() {
   floorMap = loadImage('./assets/floorMap_architecture.png');
 }
 
 function setup() {
-  createCanvas(1200, 610);
+  createCanvas(1315, 610); //1320, 615
   image(floorMap, 0, 0);
 
   //access point 1
@@ -138,7 +138,7 @@ function draw() {
   ellipse(660, 100, 10, 10);
   noStroke();
   fill(255, 255, 0, 80);
-  ellipse(660, 100, 350, 350);
+  ellipse(660, 100, range, range);
 
   //access point 2
   fill(0, 255, 0, 150);
