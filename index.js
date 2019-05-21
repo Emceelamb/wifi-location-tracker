@@ -20,6 +20,7 @@ client.connect();
 var inputFile_ap1 = './web/assets/aptest-01.csv'; //make this aptest1-01.csv
 var inputFile_ap2 = './web/assets/aptest2-01.csv'; //make this aptest2-01.csv             imarea
 var inputFile_ap3 = './web/assets/aptest3-01.csv'; //make this aptest3-01.csv             jarea
+var inputFile_ap3 = './web/assets/aptest4-01.csv'; //make this aptest4-01.csv             room15
 
 const PORT = process.env.PORT || 8000;
 
@@ -29,6 +30,7 @@ var parse = require('csv-parse');
 setInterval(csv2pg_ap1, 10000);
 setInterval(csv2pg_ap2, 10000);
 setInterval(csv2pg_ap3, 10000);
+setInterval(csv2pg_ap4, 10000);
 
 function csv2pg_ap1() {
   var csvNew_ap1 = [];
@@ -172,6 +174,57 @@ function csv2pg_ap3() {
     let message = [];
     // console.log("got data request from main.js");
     client.query('SELECT * FROM devices3', function(err, result) {
+      if (err) {
+        console.log(err);
+      }
+      for (let row of result.rows) {
+        message.push(row);
+      }
+      res1.send(message);
+    });
+  });
+}
+
+function csv2pg_ap4() {
+  var csvNew_ap4 = [];
+  var counter_ap4 = 0;
+
+  fs.createReadStream(inputFile_ap4)
+    .pipe(parse({
+      delimiter: ';'
+    }))
+    .on('data', function(oldcsvrow_ap4) {
+      console.log(oldcsvrow_ap4); //print each row of csv file
+      // counter = 0;
+      if (counter_ap4 > 4) {
+        csvNew_ap4.push(oldcsvrow_ap4);
+      }
+      counter_ap4++;
+      client.query('DELETE FROM devices4', function(e, r) {
+        // console.log('deleting old entries3');
+      });
+
+    })
+    .on('end', function() {
+      console.log('new csv AP 3');
+      console.log(csvNew_ap3); //print each row of new csv file excluding the first 4 rows
+
+      csvNew_ap4.forEach(element => {
+        let arr = element[0].split(',');
+        // console.log(arr[0]);
+        client.query('INSERT INTO devices4 (station, ap) VALUES ($1, $2)', [arr[0], arr[5]], function(error, results) {
+          // console.log('adding new entries3');
+        });
+      });
+      // client.query('DELETE FROM devices ORDER BY id DESC LIMIT 1', function(error, results) {
+      //   console.log('deleted last blank entry');
+      // });
+    });
+
+  app.get('/getData4', function(req, res1) {
+    let message = [];
+    // console.log("got data request from main.js");
+    client.query('SELECT * FROM devices4', function(err, result) {
       if (err) {
         console.log(err);
       }

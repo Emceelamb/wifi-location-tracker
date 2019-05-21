@@ -8,6 +8,9 @@ let x2 = 1192 - 50;
 let y2 = 218;
 let x3 = 968;
 let y3 = 476;
+let x4 = 940;
+let y4 = 250;
+
 let range = 500;
 
 function preload() {
@@ -42,6 +45,14 @@ function setup() {
   fill(255, 0, 0, 80);
   ellipse(x3, y3, range, range);
 
+  //access point 4
+  fill(255, 0, 0, 150);
+  stroke(0);
+  ellipse(x3, y3, 10, 10);
+  noStroke();
+  fill(255, 0, 0, 80);
+  ellipse(x4, y4, range, range);
+
   fill(0);
   //    for(var i = 0; i<clients.length; i++){
   //        text(clients[i], random(660-150,660+150), random(0,100+150));
@@ -50,7 +61,7 @@ function setup() {
   getData1('/getData1'); //access point 1
   getData2('/getData2'); //access point 2
   getData3('/getData3'); //access point 3
-  // getData('/getData4'); //access point 4
+  getData4('/getData4'); //access point 4
 }
 
 setTimeout(timer, 100);
@@ -60,6 +71,7 @@ function timer() {
     getData1('/getData1');
     getData2('/getData2');
     getData3('/getData3');
+    getData4('/getData4');
     console.log('update!');
   }, 7000);
 
@@ -126,6 +138,26 @@ function getData3(url) {
     });
 }
 
+function getData4(url) {
+  console.log('got data from Access Point 4');
+  fetch(url)
+    .then((response) => {
+      return response.json();
+    })
+    .then((jsonData) => {
+      clients_ap4 = [];
+      jsonData.forEach(element => {
+        console.log(element);
+        // text(element.station, random(660 - 150, 660 + 150), random(0, 100 + 150));
+        clients_ap4.push(element.station);
+      });
+      for (var i = 0; i < clients_ap4.length; i++) {
+        clients_ap4[i] = new Target(clients_ap4[i], x1, y1);
+      }
+      // clients_ap1.splice(clients.length - 1, 1);
+    });
+}
+
 function draw() {
 
   // console.log(mouseX, mouseY);
@@ -156,6 +188,14 @@ function draw() {
   fill(230, 30);
   ellipse(x3, y3, range, range);
 
+  //access point 4
+  fill(0, 255, 0, 150);
+  stroke(0);
+  ellipse(x2, y2, 10, 10);
+  noStroke();
+  fill(230, 30);
+  ellipse(x4, y4, range, range);
+
   fill(0);
   for (var i = 0; i < clients_ap1.length; i++) {
     clients_ap1[i].display();
@@ -171,6 +211,11 @@ function draw() {
   for (var i = 0; i < clients_ap3.length; i++) {
     clients_ap3[i].display();
     clients_ap3[i].move();
+  }
+
+  for (var i = 0; i < clients_ap4.length; i++) {
+    clients_ap4[i].display();
+    clients_ap4[i].move();
   }
 
 }
@@ -201,12 +246,15 @@ class Target {
     } else if (this.prob < 0.40) {
       this.y -= 10;
     }
-    this.x = constrain(this.x, 0, width - 100);
-<<<<<<< HEAD
-    this.y = constrain(this.y, 0, height - 20);
-=======
-    this.y = constrain(this.y, 30, height - 100);
->>>>>>> 62ec00394865c320c3cca95c923385ae0b5b867c
+    this.x = constrain(this.x, 0, width - 100); <<
+    <<
+    << < HEAD
+    this.y = constrain(this.y, 0, height - 20); ===
+    ===
+    =
+    this.y = constrain(this.y, 30, height - 100); >>>
+    >>>
+    > 62 ec00394865c320c3cca95c923385ae0b5b867c
     this.x = constrain(this.x, this.centerX - range / 2, this.centerX + range / 2);
     this.y = constrain(this.y, this.centerY - range / 2, this.centerY + range / 2);
   }
