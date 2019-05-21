@@ -11,7 +11,7 @@ let y3 = 476;
 let range = 500;
 
 function preload() {
-  floorMap = loadImage('./assets/floorMap_architecture.png');
+  floorMap = loadImage('./assets/floorMap_architecture_black.png');
 }
 
 function setup() {
@@ -209,6 +209,7 @@ class Target {
 
   display() {
     textSize(7);
+    fill(230);
     text(this.t, this.x, this.y);
   }
 
