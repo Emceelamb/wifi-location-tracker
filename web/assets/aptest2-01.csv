@@ -1,0 +1,12 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+70:7D:B9:5E:D5:2F, 2019-05-20 21:04:53, 2019-05-20 21:05:03, 100, 540, WPA2, CCMP, MGT, -73,       96,       97,   0.  0.  0.  0,   3, nyu, 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+C0:B6:F9:44:66:C8, 2019-05-20 21:04:54, 2019-05-20 21:04:54, -85,        1, 70:7D:B9:5E:D5:2F,
+AC:BC:32:CD:AE:AF, 2019-05-20 21:04:57, 2019-05-20 21:05:03, -79,       16, 70:7D:B9:5E:D5:2F,
+AC:37:43:DD:10:51, 2019-05-20 21:04:58, 2019-05-20 21:05:02, -81,        6, 70:7D:B9:5E:D5:2F,
+20:C9:D0:94:1F:DB, 2019-05-20 21:04:55, 2019-05-20 21:05:03, -79,       13, 70:7D:B9:5E:D5:2F,
+DC:A4:CA:DC:9F:C3, 2019-05-20 21:04:59, 2019-05-20 21:05:02, -79,        9, 70:7D:B9:5E:D5:2F,
+88:AE:07:34:A4:E1, 2019-05-20 21:05:00, 2019-05-20 21:05:00, -75,        2, 70:7D:B9:5E:D5:2F,
+

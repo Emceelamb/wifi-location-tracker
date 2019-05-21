@@ -1,0 +1,8 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+00:BE:75:EA:35:4F, 2019-05-20 21:05:11, 2019-05-20 21:05:20, 36, 540, WPA2, CCMP, MGT, -69,       95,      100,   0.  0.  0.  0,   3, nyu, 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+F0:18:98:38:D6:25, 2019-05-20 21:05:12, 2019-05-20 21:05:20, -71,       51, 00:BE:75:EA:35:4F,
+78:7B:8A:6B:AE:70, 2019-05-20 21:05:19, 2019-05-20 21:05:19, -73,        2, 00:BE:75:EA:35:4F,
+

@@ -18,8 +18,8 @@ client = new Client({
 client.connect();
 
 var inputFile_ap1 = './web/assets/aptest-01.csv'; //make this aptest1-01.csv
-var inputFile_ap2 = './web/assets/aptest-01.csv'; //make this aptest2-01.csv
-var inputFile_ap3 = './web/assets/aptest-01.csv'; //make this aptest3-01.csv
+var inputFile_ap2 = './web/assets/aptest2-01.csv'; //make this aptest2-01.csv             imarea
+var inputFile_ap3 = './web/assets/aptest3-01.csv'; //make this aptest3-01.csv             jarea
 
 const PORT = process.env.PORT || 8000;
 

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+echo "Killing wifi..."
+sudo airmon-ng check kill
+wait
+echo "Wifi is dead."
+
+echo "Commence monitoring..."
+sudo airmon-ng start wlp0s20u4 
+wait
+echo "Monitor mode engaged."
+
+
