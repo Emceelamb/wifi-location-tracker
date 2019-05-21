@@ -137,7 +137,7 @@ function draw() {
   stroke(0);
   ellipse(660, 100, 10, 10);
   noStroke();
-  fill(255, 255, 0, 80);
+  fill( 230, 30);
   ellipse(660, 100, range, range);
 
   //access point 2
@@ -145,7 +145,7 @@ function draw() {
   stroke(0);
   ellipse(x2, y2, 10, 10);
   noStroke();
-  fill(0, 255, 0, 80);
+  fill(230, 30);
   ellipse(x2, y2, range, range);
 
   //access point 3
@@ -153,7 +153,7 @@ function draw() {
   stroke(0);
   ellipse(x3, y3, 10, 10);
   noStroke();
-  fill(255, 0, 0, 80);
+  fill(230, 30);
   ellipse(x3, y3, range, range);
 
   fill(0);
