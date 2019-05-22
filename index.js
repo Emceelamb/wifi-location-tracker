@@ -17,10 +17,10 @@ client = new Client({
 
 client.connect();
 
-var inputFile_ap1 = './web/assets/aptest-01.csv'; //make this aptest1-01.csv
-var inputFile_ap2 = './web/assets/aptest-01.csv'; //make this aptest2-01.csv             imarea
-var inputFile_ap3 = './web/assets/aptest-01.csv'; //make this aptest3-01.csv             jarea
-var inputFile_ap4 = './web/assets/aptest-01.csv'; //make this aptest4-01.csv             room15
+var inputFile_ap1 = './web/assets/aptest2-01.csv'; //make this aptest1-01.csv             //lounge
+var inputFile_ap2 = './web/assets/aptest2-01.csv'; //make this aptest2-01.csv             //ima-area
+var inputFile_ap3 = './web/assets/aptest2-01.csv'; //make this aptest3-01.csv             //j-area
+var inputFile_ap4 = './web/assets/aptest2-01.csv'; //make this aptest4-01.csv             //room15
 
 const PORT = process.env.PORT || 8000;
 
@@ -41,7 +41,7 @@ function csv2pg_ap1() {
       delimiter: ';'
     }))
     .on('data', function(oldcsvrow_ap1) {
-      console.log(oldcsvrow_ap1); //print each row of csv file
+      // console.log(oldcsvrow_ap1); //print each row of csv file
       // counter = 0;
       if (counter_ap1 > 4) {
         csvNew_ap1.push(oldcsvrow_ap1);
@@ -69,16 +69,16 @@ function csv2pg_ap1() {
     });
 
   app.get('/getData1', function(req, res1) {
-    let message = [];
+    let message1 = [];
     // console.log("got data request from main.js");
     client.query('SELECT * FROM devices', function(err, result1) {
       if (err) {
         console.log(err);
       }
       for (let row of result1.rows) {
-        message.push(row);
+        message1.push(row);
       }
-      res1.send(message);
+      res1.send(message1);
     });
   });
 }
@@ -92,7 +92,7 @@ function csv2pg_ap2() {
       delimiter: ';'
     }))
     .on('data', function(oldcsvrow_ap2) {
-      console.log(oldcsvrow_ap2); //print each row of csv file
+      // console.log(oldcsvrow_ap2); //print each row of csv file
       // counter = 0;
       if (counter_ap2 > 4) {
         csvNew_ap2.push(oldcsvrow_ap2);
@@ -120,16 +120,16 @@ function csv2pg_ap2() {
     });
 
   app.get('/getData2', function(req, res2) {
-    let message = [];
+    let message2 = [];
     // console.log("got data request from main.js");
     client.query('SELECT * FROM devices2', function(err, result2) {
       if (err) {
         console.log(err);
       }
       for (let row of result2.rows) {
-        message.push(row);
+        message2.push(row);
       }
-      res2.send(message);
+      res2.send(message2);
     });
   });
 }
@@ -143,7 +143,7 @@ function csv2pg_ap3() {
       delimiter: ';'
     }))
     .on('data', function(oldcsvrow_ap3) {
-      console.log(oldcsvrow_ap3); //print each row of csv file
+      // console.log(oldcsvrow_ap3); //print each row of csv file
       // counter = 0;
       if (counter_ap3 > 4) {
         csvNew_ap3.push(oldcsvrow_ap3);
@@ -171,16 +171,16 @@ function csv2pg_ap3() {
     });
 
   app.get('/getData3', function(req, res3) {
-    let message = [];
+    let message3 = [];
     // console.log("got data request from main.js");
     client.query('SELECT * FROM devices3', function(err, result3) {
       if (err) {
         console.log(err);
       }
       for (let row of result3.rows) {
-        message.push(row);
+        message3.push(row);
       }
-      res3.send(message);
+      res3.send(message3);
     });
   });
 }
@@ -194,7 +194,7 @@ function csv2pg_ap4() {
       delimiter: ';'
     }))
     .on('data', function(oldcsvrow_ap4) {
-      console.log(oldcsvrow_ap4); //print each row of csv file
+      // console.log(oldcsvrow_ap4); //print each row of csv file
       // counter = 0;
       if (counter_ap4 > 4) {
         csvNew_ap4.push(oldcsvrow_ap4);
@@ -222,16 +222,16 @@ function csv2pg_ap4() {
     });
 
   app.get('/getData4', function(req, res4) {
-    let message = [];
+    let message4 = [];
     // console.log("got data request from main.js");
     client.query('SELECT * FROM devices4', function(err, result4) {
       if (err) {
         console.log(err);
       }
       for (let row of result4.rows) {
-        message.push(row);
+        message4.push(row);
       }
-      res4.send(message);
+      res4.send(message4);
     });
   });
 }

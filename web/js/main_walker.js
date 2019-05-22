@@ -88,7 +88,7 @@ function getData1(url) {
     .then((jsonData) => {
       clients_ap1 = [];
       jsonData.forEach(element => {
-        console.log(element);
+        // console.log(element);
         // text(element.station, random(660 - 150, 660 + 150), random(0, 100 + 150));
         clients_ap1.push(element.station);
       });
@@ -96,6 +96,7 @@ function getData1(url) {
         clients_ap1[i] = new Target(clients_ap1[i], x1, y1);
       }
       // clients_ap1.splice(clients.length - 1, 1);
+      console.log(clients_ap1.length); //0
     });
 }
 
@@ -108,7 +109,7 @@ function getData2(url) {
     .then((jsonData) => {
       clients_ap2 = [];
       jsonData.forEach(element => {
-        console.log(element);
+        // console.log(element);
         // text(element.station, random(660 - 150, 660 + 150), random(0, 100 + 150));
         clients_ap2.push(element.station);
       });
@@ -116,6 +117,7 @@ function getData2(url) {
         clients_ap2[i] = new Target(clients_ap2[i], x2, y2);
       }
       // clients_ap1.splice(clients.length - 1, 1);
+      console.log(clients_ap2.length); //1300~
     });
 }
 
@@ -128,7 +130,7 @@ function getData3(url) {
     .then((jsonData) => {
       clients_ap3 = [];
       jsonData.forEach(element => {
-        console.log(element);
+        // console.log(element);
         // text(element.station, random(660 - 150, 660 + 150), random(0, 100 + 150));
         clients_ap3.push(element.station);
       });
@@ -136,6 +138,7 @@ function getData3(url) {
         clients_ap3[i] = new Target(clients_ap3[i], x3, y3);
       }
       // clients_ap1.splice(clients.length - 1, 1);
+      console.log(clients_ap3.length); //11
     });
 }
 
@@ -148,7 +151,7 @@ function getData4(url) {
     .then((jsonData) => {
       clients_ap4 = [];
       jsonData.forEach(element => {
-        console.log(element);
+        // console.log(element);
         // text(element.station, random(660 - 150, 660 + 150), random(0, 100 + 150));
         clients_ap4.push(element.station);
       });
@@ -156,6 +159,7 @@ function getData4(url) {
         clients_ap4[i] = new Target(clients_ap4[i], x4, y4);
       }
       // clients_ap1.splice(clients.length - 1, 1);
+      console.log(clients_ap4.length); //11
     });
 }
 
@@ -164,6 +168,15 @@ function draw() {
   // console.log(mouseX, mouseY);
 
   image(floorMap, 0, 0);
+
+  push();
+  translate(x4, y4);
+  rotate(PI / 4.0);
+  stroke(255, 0, 0);
+  strokeWeight(3);
+  line(0, -50, 0, -100);
+  line(0 - 25, -75, +25, -75);
+  pop();
 
   //access point 1
   fill(255, 255, 0, 150);
@@ -229,8 +242,8 @@ function windowResized() {
 class Target {
   constructor(t, x, y) {
     this.t = t;
-    this.x = random(x - 150, x + 150);
-    this.y = random(y - 150, y + 150);
+    this.x = random(x - (range / 2), x + (range / 2));
+    this.y = random(y - (range / 2), y + (range / 2));
     this.centerX = x;
     this.centerY = y;
     this.prob = 0;
@@ -247,10 +260,11 @@ class Target {
     } else if (this.prob < 0.40) {
       this.y -= 10;
     }
+    this.x = constrain(this.x, this.centerX - (range / 2), this.centerX + (range / 2));
+    this.y = constrain(this.y, this.centerY - (range / 2), this.centerY + (range / 2));
     this.x = constrain(this.x, 0, width - 100);
-    this.y = constrain(this.y, 0, height - 20);
-    this.x = constrain(this.x, this.centerX - range / 2, this.centerX + range / 2);
-    this.y = constrain(this.y, this.centerY - range / 2, this.centerY + range / 2);
+    this.y = constrain(this.y, 30, height - 20);
+
   }
 
   display() {
