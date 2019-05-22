@@ -11,6 +11,8 @@ let x3 = 968;
 let y3 = 476;
 let x4 = 910;
 let y4 = 300;
+let totalCount;
+let lengthTotal = 0;
 
 let range = 350;
 
@@ -21,6 +23,8 @@ function preload() {
 function setup() {
   createCanvas(1315, 610); //1320, 615
   image(floorMap, 0, 0);
+
+  totalCount = select('#count');
 
   //access point 1
   fill(255, 255, 0, 150);
@@ -231,6 +235,9 @@ function draw() {
     clients_ap4[i].display();
     clients_ap4[i].move();
   }
+
+  lengthTotal = clients_ap1.length + clients_ap2.length + clients_ap3.length + clients_ap4.length;
+  totalCount.html("Total number of people: " + lengthTotal);
 
 }
 
