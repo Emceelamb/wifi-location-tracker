@@ -2,6 +2,7 @@ let floorMap;
 let clients_ap1 = [];
 let clients_ap2 = [];
 let clients_ap3 = [];
+let clients_ap4 = [];
 let x1 = 600;
 let y1 = 100;
 let x2 = 1192 - 50;
@@ -11,7 +12,7 @@ let y3 = 476;
 let x4 = 910;
 let y4 = 300;
 
-let range = 500;
+let range = 350;
 
 function preload() {
   floorMap = loadImage('./assets/floorMap_architecture_black.png');
@@ -50,7 +51,7 @@ function setup() {
   stroke(0);
   ellipse(x4, y4, 10, 10);
   noStroke();
-  fill(230, 80);
+  fill(230, 40);
   ellipse(x4, y4, range, range);
 
   fill(0);
@@ -152,7 +153,7 @@ function getData4(url) {
         clients_ap4.push(element.station);
       });
       for (var i = 0; i < clients_ap4.length; i++) {
-        clients_ap4[i] = new Target(clients_ap4[i], x1, y1);
+        clients_ap4[i] = new Target(clients_ap4[i], x4, y4);
       }
       // clients_ap1.splice(clients.length - 1, 1);
     });
@@ -193,7 +194,7 @@ function draw() {
   stroke(0);
   ellipse(x4, y4, 10, 10);
   noStroke();
-  fill(230, 80);
+  fill(230, 40);
   ellipse(x4, y4, range, range);
 
   fill(0);
